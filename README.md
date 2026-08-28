@@ -1,17 +1,13 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/ApacheKafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white" alt="Kafka" />
-  <img src="https://img.shields.io/badge/mosquitto-660066?style=for-the-badge&logo=eclipse-mosquitto&logoColor=white" alt="MQTT" />
-  <img src="https://img.shields.io/badge/InfluxDB-22ADF6?style=for-the-badge&logo=influxdb&logoColor=white" alt="InfluxDB" />
-  <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana" />
-  <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" />
-</p>
-
 # Que projeto é esse?
 É um pipeline construído para otimizar o uso da energia gerada pelo sistema fotovoltaico durante a noite ou em momentos emergentes em tempo real. A ideia principal é desligar IoTs com base na capacidade da bateria e nível de prioridade, mas religá-los aos poucos quando a geração for mais que o próprio consumo.
 
 > É um projeto pessoal para portifólio
 
 ![Logo do projeto](/assets/Fluxo-streaming.svg)
+
+## Monitoramento em Tempo Real
+
+![Dashboard](/assets/Dashboard.gif)
 
 ## Lógica da Otimização
 O projeto simulada diversos IoTs que consomem a capacidade da bateria, mas a ordem em que são desligados vai de acordo com seu **nível de importância(prioridade)**. 
