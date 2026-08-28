@@ -4,20 +4,20 @@
     "metadata": {
         "name": "ad5dxp6",
         "namespace": "default",
-        "uid": "5aeb2015-dbd4-4dc7-a908-75f0e94a0c10",
-        "resourceVersion": "1787261995685014",
+        "uid": "34e2f870-268c-4a47-beca-3751a471998d",
+        "resourceVersion": "1787268904086005",
         "generation": 1,
-        "creationTimestamp": "2026-08-20T21:39:55Z",
+        "creationTimestamp": "2026-08-20T23:35:04Z",
         "labels": {
-            "grafana.app/deprecatedInternalID": "884220793913344"
+            "grafana.app/deprecatedInternalID": "913196814061568"
         },
         "annotations": {
             "grafana.app/createdBy": "access-policy:service",
             "grafana.app/managedBy": "classic-file-provisioning",
             "grafana.app/managerId": "Dashboards IoT",
-            "grafana.app/sourceChecksum": "21b3f5f27234977c256ac56aa44a326f",
+            "grafana.app/sourceChecksum": "db9cc2e8d0a899fe30be08e11287e810",
             "grafana.app/sourcePath": "/etc/grafana/dashboards/meu_dashboard_iot.json",
-            "grafana.app/sourceTimestamp": "1787256519000",
+            "grafana.app/sourceTimestamp": "1787268351000",
             "grafana.app/folder": ""
         }
     },
@@ -681,11 +681,37 @@
                         "spec": {
                             "element": {
                                 "kind": "ElementReference",
-                                "name": "panel-3"
+                                "name": "panel-2"
                             },
-                            "height": 8,
-                            "width": 18,
+                            "height": 6,
+                            "width": 4,
                             "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "kind": "GridLayoutItem",
+                        "spec": {
+                            "element": {
+                                "kind": "ElementReference",
+                                "name": "panel-6"
+                            },
+                            "height": 3,
+                            "width": 4,
+                            "x": 4,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "kind": "GridLayoutItem",
+                        "spec": {
+                            "element": {
+                                "kind": "ElementReference",
+                                "name": "panel-5"
+                            },
+                            "height": 6,
+                            "width": 10,
+                            "x": 8,
                             "y": 0
                         }
                     },
@@ -707,51 +733,25 @@
                         "spec": {
                             "element": {
                                 "kind": "ElementReference",
-                                "name": "panel-2"
-                            },
-                            "height": 6,
-                            "width": 4,
-                            "x": 0,
-                            "y": 8
-                        }
-                    },
-                    {
-                        "kind": "GridLayoutItem",
-                        "spec": {
-                            "element": {
-                                "kind": "ElementReference",
-                                "name": "panel-6"
-                            },
-                            "height": 3,
-                            "width": 4,
-                            "x": 4,
-                            "y": 8
-                        }
-                    },
-                    {
-                        "kind": "GridLayoutItem",
-                        "spec": {
-                            "element": {
-                                "kind": "ElementReference",
-                                "name": "panel-5"
-                            },
-                            "height": 6,
-                            "width": 10,
-                            "x": 8,
-                            "y": 8
-                        }
-                    },
-                    {
-                        "kind": "GridLayoutItem",
-                        "spec": {
-                            "element": {
-                                "kind": "ElementReference",
                                 "name": "panel-4"
                             },
                             "height": 3,
                             "width": 4,
                             "x": 4,
-                            "y": 11
+                            "y": 3
+                        }
+                    },
+                    {
+                        "kind": "GridLayoutItem",
+                        "spec": {
+                            "element": {
+                                "kind": "ElementReference",
+                                "name": "panel-3"
+                            },
+                            "height": 8,
+                            "width": 18,
+                            "x": 0,
+                            "y": 6
                         }
                     }
                 ]
