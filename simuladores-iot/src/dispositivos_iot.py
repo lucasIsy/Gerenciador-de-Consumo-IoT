@@ -1,4 +1,4 @@
-from socket import socket
+import socket
 import time
 import json
 import os
@@ -11,6 +11,11 @@ MQTT_HOST = os.getenv("MQTT_HOST", "localhost")
 MQTT_PORT = 1883
 TOPICO_COMANDOS = "comandos/#"
 TOPICO_STATUS_CONEXAO = "status_conexao/dispositivos_iot"
+
+# Configuração de tempo para o teste correr mais rápido (alinhado com bateria.py e painel_solar.py)
+# 1 segundo real equivale a 6 minutos simulados (360 segundos ou 0.1 hora)
+FATOR_TEMPO_HORAS = 6 / 60
+FATOR_ACELERACAO = 360.0
 
 # 1. IoTs Simulados
 dispositivos = {
@@ -201,7 +206,7 @@ def on_message(client, userdata, msg):
                 elif comando == "LIGAR" and not info["ligado"]:
                     info["ligado"] = 1
                     economia = info["energia_economizada"]
-                    print(f"🟢 [IoT-Comando] Energia Restaurada: Religando {dev_id} (Categoria: {categoria_alvo}).")
+                    print(f"🟢 [IoT-Comando] Energia Restaurada: Religando {dev_id} (Categoria: {categoria_alvo} | Economizou no ciclo: {economia:.2f} Wh).")
                 
     except Exception as e:
         print(f"[IoT-Comando] Erro ao processar comando recebido: {e}")
@@ -259,13 +264,14 @@ try:
             if not info["ligado"]:
                 # Se está DESLIGADO: Acumula a energia economizada
                 watts_economizados = potencia_base
-                delta_t_simulado = delta_t_segundos * 300.0 
+                delta_t_simulado = delta_t_segundos * FATOR_ACELERACAO
                 energia_wh = (potencia_base * delta_t_simulado) / 3600.0
                 info["energia_economizada"] += energia_wh
+                info["energia_economizada_total_wh"] += energia_wh
             else:
-                # Se está LIGADO: A economia é zero (reseta)
+                # Se está LIGADO: A potência economizada instantânea é zero (mantém o acumulado total)
                 watts_economizados = 0.0
-                info["energia_economizada"] = 0.0
+                # Não reseta energia_economizada_total_wh nem o ciclo atual fora do comando DESLIGAR
 
             payload = {
                 "id_dispositivo": info["id_dispositivo"], 
@@ -274,7 +280,7 @@ try:
                 "prioridade": info["prioridade"],         
                 "watts": round(watts_calculado, 2),
                 "watts_economizados": round(watts_economizados, 2),
-                "energia_economizada": round(info["energia_economizada"], 4),
+                "energia_economizada": round(info["energia_economizada_total_wh"], 4),
                 "volts": round(volts, 2),
                 "amperes": round(amperes, 2),
                 "timestamp": timestamp_int
