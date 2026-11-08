@@ -370,7 +370,7 @@
                                         "hidden": false,
                                         "query": {
                                             "datasource": {
-                                                "name": "P99416EC0F8906468"
+                                                "name": "InfluxDB_IoT"
                                             },
                                             "group": "influxdb",
                                             "kind": "DataQuery",
@@ -448,7 +448,7 @@
                                         "hidden": false,
                                         "query": {
                                             "datasource": {
-                                                "name": "P99416EC0F8906468"
+                                                "name": "InfluxDB_IoT"
                                             },
                                             "group": "influxdb",
                                             "kind": "DataQuery",
@@ -567,7 +567,7 @@
                                         "hidden": false,
                                         "query": {
                                             "datasource": {
-                                                "name": "P99416EC0F8906468"
+                                                "name": "InfluxDB_IoT"
                                             },
                                             "group": "influxdb",
                                             "kind": "DataQuery",
