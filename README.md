@@ -38,7 +38,7 @@ O projeto simulada diversos IoTs que consomem a capacidade da bateria, mas a ord
 - [**Linux**] Executa o Makefile na raíz do projeto
 - [**Windows**] Executa o buildar.bat
 #### Conexão Mosquitto -> Kafka
-- Executa o conectores.sh da pasta [config/kafk-connect/](config/kafka-connect/)
+- Executa o conectores.sh da pasta [config/kafka-connect/](config/kafka-connect/)
 
 #### Histórico e Monitoramento - InfluxDB e Grafana
 - No arquivo [.env.example](.env.example) você deve modificar os nomes para o seu InfluxDB que será utilizado como fonte de dados no Grafana - modifique também para ter login e senha específicos.
@@ -51,10 +51,7 @@ O projeto simulada diversos IoTs que consomem a capacidade da bateria, mas a ord
 > no docker compose o KsqlDB já é limitado para não consumir TODOS os recursos da sua máquina e travar o projeto.
 
 #### Enviando os comandos do kafka para o mosquitto
-- A primeira conexão foi o envio dos dados, porém, agora é necessário configurar o mosquitto para receber os comandos do tópico final criado nas queries.sql.
-- Execute o setup_mosquitto_sink.sh da pasta [config/kafk-connect/](config/kafka-connect/)
-
-> Detalhes de como modificar o projeto ou decisões específicas vão estar na pasta [Guia-do-projeto](Guia-do-projeto/)
+- O próprio script `conectores.sh` na pasta [config/kafka-connect/](config/kafka-connect/) já configura tanto os 3 conectores Source (Mosquitto -> Kafka) quanto o conector Sink (`mosquitto-sink-comandos`, Kafka -> Mosquitto) para enviar os comandos do tópico final criado nas `queries.sql` de volta ao Mosquitto.
 
 ---
 
